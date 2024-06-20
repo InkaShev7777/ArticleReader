@@ -9,19 +9,31 @@
 /* Begin PBXBuildFile section */
 		C155B96E2C24293D00EF8CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B96D2C24293D00EF8CCD /* AppDelegate.swift */; };
 		C155B9702C24293D00EF8CCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B96F2C24293D00EF8CCD /* SceneDelegate.swift */; };
-		C155B9722C24293D00EF8CCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B9712C24293D00EF8CCD /* ViewController.swift */; };
+		C155B9722C24293D00EF8CCD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B9712C24293D00EF8CCD /* HomeViewController.swift */; };
 		C155B9772C24293E00EF8CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C155B9762C24293E00EF8CCD /* Assets.xcassets */; };
 		C155B97A2C24293E00EF8CCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C155B9782C24293E00EF8CCD /* LaunchScreen.storyboard */; };
+		C155B9882C243C6D00EF8CCD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B9872C243C6D00EF8CCD /* TabBarViewController.swift */; };
+		C155B98A2C24401100EF8CCD /* SharedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B9892C24401100EF8CCD /* SharedViewController.swift */; };
+		C155B98C2C24402700EF8CCD /* ViewedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B98B2C24402700EF8CCD /* ViewedViewController.swift */; };
+		C155B98E2C24410000EF8CCD /* SelectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B98D2C24410000EF8CCD /* SelectedViewController.swift */; };
+		C155B9902C24414A00EF8CCD /* ApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B98F2C24414A00EF8CCD /* ApiCaller.swift */; };
+		C155B9922C24417200EF8CCD /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B9912C24417200EF8CCD /* HapticsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C155B96A2C24293D00EF8CCD /* TestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C155B96D2C24293D00EF8CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C155B96F2C24293D00EF8CCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C155B9712C24293D00EF8CCD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C155B9712C24293D00EF8CCD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C155B9762C24293E00EF8CCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C155B9792C24293E00EF8CCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C155B97B2C24293E00EF8CCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C155B9872C243C6D00EF8CCD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		C155B9892C24401100EF8CCD /* SharedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViewController.swift; sourceTree = "<group>"; };
+		C155B98B2C24402700EF8CCD /* ViewedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewedViewController.swift; sourceTree = "<group>"; };
+		C155B98D2C24410000EF8CCD /* SelectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedViewController.swift; sourceTree = "<group>"; };
+		C155B98F2C24414A00EF8CCD /* ApiCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCaller.swift; sourceTree = "<group>"; };
+		C155B9912C24417200EF8CCD /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +80,11 @@
 		C155B9812C243A1D00EF8CCD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C155B9712C24293D00EF8CCD /* ViewController.swift */,
+				C155B9712C24293D00EF8CCD /* HomeViewController.swift */,
+				C155B9872C243C6D00EF8CCD /* TabBarViewController.swift */,
+				C155B9892C24401100EF8CCD /* SharedViewController.swift */,
+				C155B98B2C24402700EF8CCD /* ViewedViewController.swift */,
+				C155B98D2C24410000EF8CCD /* SelectedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -98,6 +114,8 @@
 		C155B9852C243A4900EF8CCD /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C155B98F2C24414A00EF8CCD /* ApiCaller.swift */,
+				C155B9912C24417200EF8CCD /* HapticsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -182,8 +200,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C155B9722C24293D00EF8CCD /* ViewController.swift in Sources */,
+				C155B9922C24417200EF8CCD /* HapticsManager.swift in Sources */,
+				C155B9902C24414A00EF8CCD /* ApiCaller.swift in Sources */,
+				C155B9882C243C6D00EF8CCD /* TabBarViewController.swift in Sources */,
+				C155B98A2C24401100EF8CCD /* SharedViewController.swift in Sources */,
+				C155B9722C24293D00EF8CCD /* HomeViewController.swift in Sources */,
 				C155B96E2C24293D00EF8CCD /* AppDelegate.swift in Sources */,
+				C155B98C2C24402700EF8CCD /* ViewedViewController.swift in Sources */,
+				C155B98E2C24410000EF8CCD /* SelectedViewController.swift in Sources */,
 				C155B9702C24293D00EF8CCD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

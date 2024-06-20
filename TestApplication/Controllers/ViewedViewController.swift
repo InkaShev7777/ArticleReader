@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ViewedViewController.swift
 //  TestApplication
 //
 //  Created by Ilya Schevchenko on 20.06.2024.
@@ -7,13 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.red
+        title = "Most Viewed"
+        view.backgroundColor = .systemBackground
     }
-
-
 }
-
