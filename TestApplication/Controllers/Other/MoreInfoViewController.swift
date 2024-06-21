@@ -74,6 +74,9 @@ class MoreInfoViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         configure()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.down"), style: .done, target: self, action: nil)
+        
         view.addSubview(image)
         view.addSubview(sourceTitle)
         view.addSubview(publishedDateLable)
@@ -100,6 +103,12 @@ class MoreInfoViewController: UIViewController {
         if let url = URL(string: imageUrl) {
             image.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder.png"), options: .continueInBackground, completed: nil)
         }
+        
+        image.layer.shadowColor = UIColor.black.cgColor
+        image.layer.shadowOpacity = 0.7
+        image.layer.shadowOffset = CGSize(width: 1, height: 3)
+        image.layer.shadowRadius = 8
+        image.layer.masksToBounds = false
         
         //
         // source title

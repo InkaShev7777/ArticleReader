@@ -14,7 +14,7 @@ class TabBarViewController: UITabBarController {
         
         let vcHome = HomeViewController()
         let vcShared = SharedViewController()
-        let vcViewed = ViewedViewController()
+        let vcViewed = MostViewedViewController()
         let vcSelected = SelectedViewController()
         
         vcHome.title = "Home"

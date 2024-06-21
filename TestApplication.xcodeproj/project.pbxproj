@@ -14,7 +14,7 @@
 		C155B9772C24293E00EF8CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C155B9762C24293E00EF8CCD /* Assets.xcassets */; };
 		C155B9882C243C6D00EF8CCD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B9872C243C6D00EF8CCD /* TabBarViewController.swift */; };
 		C155B98A2C24401100EF8CCD /* SharedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B9892C24401100EF8CCD /* SharedViewController.swift */; };
-		C155B98C2C24402700EF8CCD /* ViewedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B98B2C24402700EF8CCD /* ViewedViewController.swift */; };
+		C155B98C2C24402700EF8CCD /* MostViewedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B98B2C24402700EF8CCD /* MostViewedViewController.swift */; };
 		C155B98E2C24410000EF8CCD /* SelectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B98D2C24410000EF8CCD /* SelectedViewController.swift */; };
 		C155B9902C24414A00EF8CCD /* ApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B98F2C24414A00EF8CCD /* ApiCaller.swift */; };
 		C155B9922C24417200EF8CCD /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B9912C24417200EF8CCD /* HapticsManager.swift */; };
@@ -38,7 +38,7 @@
 		C155B97B2C24293E00EF8CCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C155B9872C243C6D00EF8CCD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C155B9892C24401100EF8CCD /* SharedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViewController.swift; sourceTree = "<group>"; };
-		C155B98B2C24402700EF8CCD /* ViewedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewedViewController.swift; sourceTree = "<group>"; };
+		C155B98B2C24402700EF8CCD /* MostViewedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostViewedViewController.swift; sourceTree = "<group>"; };
 		C155B98D2C24410000EF8CCD /* SelectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedViewController.swift; sourceTree = "<group>"; };
 		C155B98F2C24414A00EF8CCD /* ApiCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCaller.swift; sourceTree = "<group>"; };
 		C155B9912C24417200EF8CCD /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
@@ -114,12 +114,8 @@
 		C155B9812C243A1D00EF8CCD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C155B9A22C25EF8000EF8CCD /* Core */,
 				C155B99F2C25B74200EF8CCD /* Other */,
-				C155B9712C24293D00EF8CCD /* HomeViewController.swift */,
-				C155B9872C243C6D00EF8CCD /* TabBarViewController.swift */,
-				C155B9892C24401100EF8CCD /* SharedViewController.swift */,
-				C155B98B2C24402700EF8CCD /* ViewedViewController.swift */,
-				C155B98D2C24410000EF8CCD /* SelectedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -175,6 +171,18 @@
 				C155B9A02C25B76500EF8CCD /* MoreInfoViewController.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		C155B9A22C25EF8000EF8CCD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C155B9712C24293D00EF8CCD /* HomeViewController.swift */,
+				C155B9872C243C6D00EF8CCD /* TabBarViewController.swift */,
+				C155B9892C24401100EF8CCD /* SharedViewController.swift */,
+				C155B98B2C24402700EF8CCD /* MostViewedViewController.swift */,
+				C155B98D2C24410000EF8CCD /* SelectedViewController.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,7 +307,7 @@
 				C155B9722C24293D00EF8CCD /* HomeViewController.swift in Sources */,
 				C155B96E2C24293D00EF8CCD /* AppDelegate.swift in Sources */,
 				C155B99E2C2589B400EF8CCD /* PreviewArticleCollectionViewCell.swift in Sources */,
-				C155B98C2C24402700EF8CCD /* ViewedViewController.swift in Sources */,
+				C155B98C2C24402700EF8CCD /* MostViewedViewController.swift in Sources */,
 				C155B98E2C24410000EF8CCD /* SelectedViewController.swift in Sources */,
 				C155B9702C24293D00EF8CCD /* SceneDelegate.swift in Sources */,
 				C155B9A12C25B76500EF8CCD /* MoreInfoViewController.swift in Sources */,
