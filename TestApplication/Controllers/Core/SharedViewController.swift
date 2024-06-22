@@ -41,16 +41,21 @@ class SharedViewController: UIViewController {
     )
     
     private var results = [Results]()
+    
+    private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Most Shared"
         view.backgroundColor = .systemBackground
+        view.safeAreaLayoutGuide
         collectionView.backgroundColor = .systemBackground
         view.addSubview(collectionView)
         collectionView.register(PreviewArticleCollectionViewCell.self, forCellWithReuseIdentifier: PreviewArticleCollectionViewCell.identifire)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        setupRefreshControl()
         
         fetchData()
     }
@@ -67,13 +72,22 @@ class SharedViewController: UIViewController {
                 case .success(let results):
                     self?.results = results
                     self?.collectionView.reloadData()
+                    self?.refreshControl.endRefreshing()
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
             }
         }
-        
     }
+    
+    @objc private func refreshData() {
+            fetchData()
+        }
+    
+    private func setupRefreshControl() {
+            collectionView.refreshControl = refreshControl
+            refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        }
 }
 extension SharedViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

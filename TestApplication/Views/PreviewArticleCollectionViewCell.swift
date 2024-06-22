@@ -11,7 +11,7 @@ import SDWebImage
 class PreviewArticleCollectionViewCell: UICollectionViewCell {
     static let identifire = "PreviewArticleCollectionViewCell"
     
-    private let imageView: UIImageView = {
+    private var imageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.tintColor = .white
@@ -52,13 +52,25 @@ class PreviewArticleCollectionViewCell: UICollectionViewCell {
         
         imageView.frame = CGRect(x: 0, y: 0, width: Int(contentView.frame.width), height: Int(contentView.frame.height)-80)
         
-        label.frame = CGRect(x: 10, y: Int(imageView.frame.height), width: Int(contentView.frame.width)-20, height: Int(contentView.frame.height)/2)
+        label.frame = CGRect(x: 10, y: Int(imageView.frame.height), width: Int(contentView.frame.width)-20, height: Int(contentView.frame.height-50)/2)
     }
     
     func configure(with title: String, imageUrl: String?) {
         label.text = title
         if let url = URL(string: imageUrl ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqrEjjUHn9M9TT65gTVLXc_rN6ry5TraQf4w&s") {
             imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder.png"), options: .continueInBackground, completed: nil)
+        }
+    }
+    
+    func configureFromCoreData(with title: String?, data: Data?) {
+        label.text = title
+        guard let data = data else {
+            return
+        }
+        if let image = UIImage(data: data) {
+            imageView.image = image
+        } else {
+            print("Failed to convert data to UIImage.")
         }
     }
 }

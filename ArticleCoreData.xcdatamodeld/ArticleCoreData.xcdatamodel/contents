@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="22G90" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="ArticleCoreData" representedClassName="ArticleCoreData" syncable="YES" codeGenerationType="class">
+        <attribute name="abstarct" optional="YES" attributeType="String"/>
+        <attribute name="coreImage" optional="YES" attributeType="Binary"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="previewImage" optional="YES" attributeType="Binary"/>
+        <attribute name="publishedDate" optional="YES" attributeType="String"/>
+        <attribute name="section" optional="YES" attributeType="String"/>
+        <attribute name="source" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="updatedDate" optional="YES" attributeType="String"/>
     </entity>
 </model>

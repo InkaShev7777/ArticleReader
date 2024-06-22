@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let error {
                 print(error.localizedDescription)
             } else {
-                print(description.url ?? "")
+//                print(description.url ?? "")
             }
         }
         return container

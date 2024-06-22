@@ -42,6 +42,8 @@ class MostViewedViewController: UIViewController {
     
     private var results = [Results]()
     
+    private let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Most Viewed"
@@ -51,6 +53,8 @@ class MostViewedViewController: UIViewController {
         collectionView.register(PreviewArticleCollectionViewCell.self, forCellWithReuseIdentifier: PreviewArticleCollectionViewCell.identifire)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        setupRefreshControl()
         
         fetchData()
     }
@@ -67,13 +71,22 @@ class MostViewedViewController: UIViewController {
                 case .success(let results):
                     self?.results = results
                     self?.collectionView.reloadData()
+                    self?.refreshControl.endRefreshing()
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
             }
         }
-        
     }
+    
+    @objc private func refreshData() {
+            fetchData()
+        }
+    
+    private func setupRefreshControl() {
+            collectionView.refreshControl = refreshControl
+            refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        }
 }
 extension MostViewedViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

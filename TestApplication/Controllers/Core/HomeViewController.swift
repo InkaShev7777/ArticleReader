@@ -42,6 +42,8 @@ class HomeViewController: UIViewController {
     
     private var results = [Results]()
     
+    private let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Most Emailed"
@@ -51,6 +53,8 @@ class HomeViewController: UIViewController {
         collectionView.register(PreviewArticleCollectionViewCell.self, forCellWithReuseIdentifier: PreviewArticleCollectionViewCell.identifire)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        setupRefreshControl()
         
         fetchData()
     }
@@ -67,13 +71,22 @@ class HomeViewController: UIViewController {
                 case .success(let results):
                     self?.results = results
                     self?.collectionView.reloadData()
+                    self?.refreshControl.endRefreshing()
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
             }
         }
-        
     }
+    
+    @objc private func refreshData() {
+            fetchData()
+        }
+    
+    private func setupRefreshControl() {
+            collectionView.refreshControl = refreshControl
+            refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -81,7 +94,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PreviewArticleCollectionViewCell.identifire, for: indexPath) as? PreviewArticleCollectionViewCell else {
             return UICollectionViewCell()
         }
-        let countOfResult = self.results.count
+        
         let title = self.results[indexPath.row].title
         let imageUrl = results[indexPath.row].media.first?.metaData[0].url
         

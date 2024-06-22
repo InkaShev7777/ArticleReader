@@ -1,15 +1,15 @@
 //
-//  MoreInfoViewController.swift
+//  MoreInfoFromCoreDataViewController.swift
 //  TestApplication
 //
-//  Created by Ilya Schevchenko on 21.06.2024.
+//  Created by Ilya Schevchenko on 22.06.2024.
 //
 
 import UIKit
 
-class MoreInfoViewController: UIViewController {
-    let article: Results
-    var articleForSaving: Results
+class MoreInfoFromCoreDataViewController: UIViewController {
+
+    let article: ArticleCoreData
     
     let image: UIImageView = {
         let image = UIImageView()
@@ -58,9 +58,8 @@ class MoreInfoViewController: UIViewController {
         return image
     }()
     
-    init(article: Results) {
+    init(article: ArticleCoreData) {
         self.article = article
-        self.articleForSaving = article
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -77,7 +76,7 @@ class MoreInfoViewController: UIViewController {
         
         configure()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.down"), style: .done, target: self, action: #selector(saveData))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.down"), style: .done, target: self, action: nil)
         
         view.addSubview(image)
         view.addSubview(sourceTitle)
@@ -87,60 +86,18 @@ class MoreInfoViewController: UIViewController {
         view.addSubview(abstractLable)
     }
     
-    @objc func saveData() {
-        if DataCoreManager.shared.createArticleDataCore(
-            Int64(article.id),
-            title: article.title,
-            abstract: article.abstract,
-            section: article.section,
-            source: article.source,
-            updated: article.updated,
-            publishedDate: article.publishedDate,
-            previewImage: article.media[0].metaData[0].url,
-            coreImage: article.media[0].metaData[2].url
-        ) {
-            let alert = UIAlertController(
-                title: "Information",
-                message: "The article was successfuly saved.",
-                preferredStyle: .alert
-            )
-            
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            
-            present(alert, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(
-                title: "Error",
-                message: "Something went wrong. You may have already saved this article.",
-                preferredStyle: .alert
-            )
-            
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            
-            present(alert, animated: true, completion: nil)
-        }
-        
-    }
-    
     private func configure() {
         //
         //  image
         //
         image.frame = CGRect(x: Int(view.frame.width/2)-200, y: 100, width: 400, height: 400)
-        var imageUrl = ""
-        if article.media.count > 0 {
-            if article.media[0].metaData[2].url != "" {
-                imageUrl = article.media[0].metaData[2].url
-            }
-        }
-        else {
-            imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqrEjjUHn9M9TT65gTVLXc_rN6ry5TraQf4w&s"
-        }
         
-        if let url = URL(string: imageUrl) {
-            image.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder.png"), options: .continueInBackground, completed: nil)
+        let data: Data?
+        data = article.coreImage
+        if let image = UIImage(data: data!) {
+            self.image.image = image
+        } else {
+            print("Failed to convert data to UIImage.")
         }
         
         image.layer.shadowColor = UIColor.black.cgColor
@@ -170,7 +127,7 @@ class MoreInfoViewController: UIViewController {
         //
         //  updatedDateLable
         //
-        updatedDateLable.text = "Updated: \(article.updated)"
+        updatedDateLable.text = "Updated: \(article.updatedDate)"
         updatedDateLable.frame = CGRect(x: 5, y: publishedDateLable.frame.maxY+10, width: view.frame.width, height: 30)
         
         //
@@ -182,7 +139,7 @@ class MoreInfoViewController: UIViewController {
         //
         //  abstractLable
         //
-        abstractLable.text = article.abstract
+        abstractLable.text = article.abstarct
         abstractLable.frame = CGRect(x: 5, y: sectionLable.frame.maxY+10, width: view.frame.width-5, height: 100)
     }
     
@@ -190,5 +147,5 @@ class MoreInfoViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
     }
-    
+
 }

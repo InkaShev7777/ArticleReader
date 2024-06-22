@@ -22,36 +22,80 @@ public final class DataCoreManager: NSObject {
         appDeletate.persistentContainer.viewContext
     }
     
-    public func createArticleDataCore(_ id: Int64, title: String, previewImage: String) {
-        guard let articleCoreDataDescription = NSEntityDescription.entity(forEntityName: "ArticleCoreData", in: context) else {
-            return
-        }
-        let articleCoreData = ArticleCoreData(entity: articleCoreDataDescription, insertInto: context)
-        articleCoreData.id = id
-        articleCoreData.title = title
+    public func createArticleDataCore(
+        _ id: Int64,
+        title: String,
+        abstract: String,
+        section: String,
+        source: String,
+        updated: String,
+        publishedDate: String,
+        previewImage: String,
+        coreImage: String
+    ) -> Bool {
         
-        guard let urlFromString = URL(string: previewImage) else {
-            return
+        if !isExistArticle(id) {
+            guard let articleCoreDataDescription = NSEntityDescription.entity(forEntityName: "ArticleCoreData", in: context) else {
+                return false
+            }
+            let articleCoreData = ArticleCoreData(entity: articleCoreDataDescription, insertInto: context)
+            articleCoreData.id = Int64(id)
+            articleCoreData.title = title
+            articleCoreData.abstarct = abstract
+            articleCoreData.publishedDate = publishedDate
+            articleCoreData.section = section
+            articleCoreData.source = source
+            articleCoreData.updatedDate = updated
+            
+            
+            guard let urlFromString = URL(string: previewImage) else {
+                return false
+            }
+            
+            URLSession.shared.dataTask(with: urlFromString) { [weak self] data, _, error in
+                guard let self = self else { return }
+                
+                if let error = error {
+                    print("Failed to fetch image data:", error)
+                    return
+                }
+                guard let data = data else {
+                    print("No data received.")
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    articleCoreData.previewImage = data
+                    self.appDeletate.saveContext()
+                }
+            }.resume()
+            
+            guard let urlFromStringCoreImage = URL(string: coreImage) else {
+                return false
+            }
+            
+            URLSession.shared.dataTask(with: urlFromStringCoreImage) { [weak self] data, _, error in
+                guard let self = self else { return }
+                
+                if let error = error {
+                    print("Failed to fetch image data:", error)
+                    return
+                }
+                guard let data = data else {
+                    print("No data received.")
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    articleCoreData.coreImage = data
+                    self.appDeletate.saveContext()
+                }
+            }.resume()
+            
+            return true
+        } else {
+            return false
         }
-        
-        URLSession.shared.dataTask(with: urlFromString) { [weak self] data, _, error in
-                    guard let self = self else { return }
-
-                    if let error = error {
-                        print("Failed to fetch image data:", error)
-                        return
-                    }
-                    guard let data = data else {
-                        print("No data received.")
-                        return
-                    }
-
-                    // Save image data to Core Data on the main thread
-                    DispatchQueue.main.async {
-                        articleCoreData.previewImage = data
-                        self.appDeletate.saveContext()
-                    }
-                }.resume()
     }
     
     public func fetchArticlesCoreData() -> [ArticleCoreData]? {
@@ -59,6 +103,23 @@ public final class DataCoreManager: NSObject {
         
         do {
             return try? context.fetch(fetchRequest) as [ArticleCoreData]
+        } catch {
+            print(error.localizedDescription)
         }
+    }
+    
+    public func deleteArticleById(_ id: Int64){
+        
+    }
+    
+    private func isExistArticle(_ id: Int64) -> Bool {
+        guard let articles = fetchArticlesCoreData() else { return false}
+        
+        for item in articles {
+            if item.id == id {
+                return true
+            }
+        }
+        return false
     }
 }

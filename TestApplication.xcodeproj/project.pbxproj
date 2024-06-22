@@ -26,6 +26,7 @@
 		C155B9A12C25B76500EF8CCD /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B9A02C25B76500EF8CCD /* MoreInfoViewController.swift */; };
 		C155B9AE2C26C73D00EF8CCD /* DataCoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B9AD2C26C73D00EF8CCD /* DataCoreManager.swift */; };
 		C155B9B42C272AB100EF8CCD /* ArticleCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C155B9B22C272AB100EF8CCD /* ArticleCoreData.xcdatamodeld */; };
+		C155B9B62C275CA600EF8CCD /* MoreInfoFromCoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B9B52C275CA600EF8CCD /* MoreInfoFromCoreDataViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		C155B9A02C25B76500EF8CCD /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
 		C155B9AD2C26C73D00EF8CCD /* DataCoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCoreManager.swift; sourceTree = "<group>"; };
 		C155B9B32C272AB100EF8CCD /* ArticleCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ArticleCoreData.xcdatamodel; sourceTree = "<group>"; };
+		C155B9B52C275CA600EF8CCD /* MoreInfoFromCoreDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoFromCoreDataViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				C155B9A02C25B76500EF8CCD /* MoreInfoViewController.swift */,
+				C155B9B52C275CA600EF8CCD /* MoreInfoFromCoreDataViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				C155B99E2C2589B400EF8CCD /* PreviewArticleCollectionViewCell.swift in Sources */,
 				C155B98C2C24402700EF8CCD /* MostViewedViewController.swift in Sources */,
 				C155B98E2C24410000EF8CCD /* SelectedViewController.swift in Sources */,
+				C155B9B62C275CA600EF8CCD /* MoreInfoFromCoreDataViewController.swift in Sources */,
 				C155B9702C24293D00EF8CCD /* SceneDelegate.swift in Sources */,
 				C155B9A12C25B76500EF8CCD /* MoreInfoViewController.swift in Sources */,
 				C155B9B42C272AB100EF8CCD /* ArticleCoreData.xcdatamodeld in Sources */,
