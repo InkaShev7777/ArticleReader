@@ -24,8 +24,8 @@
 		C155B99C2C249FAD00EF8CCD /* MediaMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B99B2C249FAD00EF8CCD /* MediaMetadata.swift */; };
 		C155B99E2C2589B400EF8CCD /* PreviewArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B99D2C2589B400EF8CCD /* PreviewArticleCollectionViewCell.swift */; };
 		C155B9A12C25B76500EF8CCD /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B9A02C25B76500EF8CCD /* MoreInfoViewController.swift */; };
-		C155B9A82C26C59800EF8CCD /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C155B9A62C26C59800EF8CCD /* CoreData.xcdatamodeld */; };
 		C155B9AE2C26C73D00EF8CCD /* DataCoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155B9AD2C26C73D00EF8CCD /* DataCoreManager.swift */; };
+		C155B9B42C272AB100EF8CCD /* ArticleCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C155B9B22C272AB100EF8CCD /* ArticleCoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,8 +50,8 @@
 		C155B99B2C249FAD00EF8CCD /* MediaMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaMetadata.swift; sourceTree = "<group>"; };
 		C155B99D2C2589B400EF8CCD /* PreviewArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		C155B9A02C25B76500EF8CCD /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
-		C155B9A72C26C59800EF8CCD /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		C155B9AD2C26C73D00EF8CCD /* DataCoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCoreManager.swift; sourceTree = "<group>"; };
+		C155B9B32C272AB100EF8CCD /* ArticleCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ArticleCoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 		C155B9612C24293D00EF8CCD = {
 			isa = PBXGroup;
 			children = (
-				C155B9A62C26C59800EF8CCD /* CoreData.xcdatamodeld */,
+				C155B9B22C272AB100EF8CCD /* ArticleCoreData.xcdatamodeld */,
 				C155B96C2C24293D00EF8CCD /* TestApplication */,
 				C155B96B2C24293D00EF8CCD /* Products */,
 				174F5CD5C3503FB8DE09CB2C /* Pods */,
@@ -304,7 +304,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C155B9A82C26C59800EF8CCD /* CoreData.xcdatamodeld in Sources */,
 				C155B9922C24417200EF8CCD /* HapticsManager.swift in Sources */,
 				C155B9902C24414A00EF8CCD /* ApiCaller.swift in Sources */,
 				C155B99A2C249F9400EF8CCD /* Media.swift in Sources */,
@@ -319,6 +318,7 @@
 				C155B98E2C24410000EF8CCD /* SelectedViewController.swift in Sources */,
 				C155B9702C24293D00EF8CCD /* SceneDelegate.swift in Sources */,
 				C155B9A12C25B76500EF8CCD /* MoreInfoViewController.swift in Sources */,
+				C155B9B42C272AB100EF8CCD /* ArticleCoreData.xcdatamodeld in Sources */,
 				C155B9982C249F3B00EF8CCD /* Results.swift in Sources */,
 				C155B99C2C249FAD00EF8CCD /* MediaMetadata.swift in Sources */,
 			);
@@ -532,13 +532,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C155B9A62C26C59800EF8CCD /* CoreData.xcdatamodeld */ = {
+		C155B9B22C272AB100EF8CCD /* ArticleCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C155B9A72C26C59800EF8CCD /* CoreData.xcdatamodel */,
+				C155B9B32C272AB100EF8CCD /* ArticleCoreData.xcdatamodel */,
 			);
-			currentVersion = C155B9A72C26C59800EF8CCD /* CoreData.xcdatamodel */;
-			path = CoreData.xcdatamodeld;
+			currentVersion = C155B9B32C272AB100EF8CCD /* ArticleCoreData.xcdatamodel */;
+			path = ArticleCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

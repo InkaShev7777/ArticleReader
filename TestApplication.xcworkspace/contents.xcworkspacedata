@@ -2,7 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:TestApplication/ArticleCoreData+CoreDataProperties.swift">
+      location = "group:ArticleCoreData+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ArticleCoreData+CoreDataProperties.swift">
    </FileRef>
    <FileRef
       location = "group:TestApplication.xcodeproj">

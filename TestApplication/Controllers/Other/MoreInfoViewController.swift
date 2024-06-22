@@ -75,7 +75,7 @@ class MoreInfoViewController: UIViewController {
         
         configure()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.down"), style: .done, target: self, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.down"), style: .done, target: self, action: #selector(saveData))
         
         view.addSubview(image)
         view.addSubview(sourceTitle)
@@ -83,6 +83,10 @@ class MoreInfoViewController: UIViewController {
         view.addSubview(updatedDateLable)
         view.addSubview(sectionLable)
         view.addSubview(abstractLable)
+    }
+    
+    @objc func saveData() {
+        DataCoreManager.shared.createArticleDataCore(Int64(self.article.id), title: self.article.title, previewImage: self.article.media[0].metaData[0].url)
     }
     
     private func configure() {
@@ -151,5 +155,5 @@ class MoreInfoViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
     }
-
+    
 }

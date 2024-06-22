@@ -20,8 +20,8 @@ class SelectedViewController: UIViewController {
     var articles = [ArticleCoreData]()
     
     private func fetchData() {
-//        DataCoreManager.shared.createArticleDataCore(1, title: "Tets Id")
+//        DataCoreManager.shared.createArticleDataCore(1, title: "Tets ttile")
         articles = DataCoreManager.shared.fetchArticlesCoreData() ?? []
-        print(articles[0].title)
+        print(articles[articles.count-1].previewImage)
     }
 }

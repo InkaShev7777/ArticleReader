@@ -22,7 +22,7 @@ public final class DataCoreManager: NSObject {
         appDeletate.persistentContainer.viewContext
     }
     
-    public func createArticleDataCore(_ id: Int64, title: String) {
+    public func createArticleDataCore(_ id: Int64, title: String, previewImage: String) {
         guard let articleCoreDataDescription = NSEntityDescription.entity(forEntityName: "ArticleCoreData", in: context) else {
             return
         }
@@ -30,7 +30,28 @@ public final class DataCoreManager: NSObject {
         articleCoreData.id = id
         articleCoreData.title = title
         
-        appDeletate.saveContext()
+        guard let urlFromString = URL(string: previewImage) else {
+            return
+        }
+        
+        URLSession.shared.dataTask(with: urlFromString) { [weak self] data, _, error in
+                    guard let self = self else { return }
+
+                    if let error = error {
+                        print("Failed to fetch image data:", error)
+                        return
+                    }
+                    guard let data = data else {
+                        print("No data received.")
+                        return
+                    }
+
+                    // Save image data to Core Data on the main thread
+                    DispatchQueue.main.async {
+                        articleCoreData.previewImage = data
+                        self.appDeletate.saveContext()
+                    }
+                }.resume()
     }
     
     public func fetchArticlesCoreData() -> [ArticleCoreData]? {
