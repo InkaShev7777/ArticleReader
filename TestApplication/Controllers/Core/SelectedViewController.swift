@@ -13,5 +13,15 @@ class SelectedViewController: UIViewController {
         super.viewDidLoad()
         title = "Selected"
         view.backgroundColor = .systemBackground
+        
+        fetchData()
+    }
+    
+    var articles = [ArticleCoreData]()
+    
+    private func fetchData() {
+//        DataCoreManager.shared.createArticleDataCore(1, title: "Tets Id")
+        articles = DataCoreManager.shared.fetchArticlesCoreData() ?? []
+        print(articles[0].title)
     }
 }

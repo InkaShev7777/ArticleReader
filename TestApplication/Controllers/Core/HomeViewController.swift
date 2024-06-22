@@ -85,7 +85,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let title = self.results[indexPath.row].title
         let imageUrl = results[indexPath.row].media.first?.metaData[0].url
         
-
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOpacity = 0.7
         cell.layer.shadowOffset = CGSize(width: 1, height: 3)

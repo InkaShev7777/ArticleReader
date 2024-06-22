@@ -8,6 +8,7 @@
 import Foundation
 
 struct Results: Codable {
+    let id: Int
     let url: String
     let source: String
     let publishedDate: String
@@ -18,6 +19,7 @@ struct Results: Codable {
     let abstract: String
 
     enum CodingKeys: String, CodingKey {
+        case id
         case url
         case source
         case publishedDate = "published_date"
