@@ -121,19 +121,20 @@ class MoreInfoFromCoreDataViewController: UIViewController {
         //
         //  published label
         //
-        publishedDateLable.text = "Publised: \(article.publishedDate)"
+        publishedDateLable.text = "Publised: " + (article.publishedDate ?? "")
+//        "Publised: \()"
         publishedDateLable.frame = CGRect(x: 5, y: sourceTitle.frame.maxY+10, width: view.frame.width, height: 30)
         
         //
         //  updatedDateLable
         //
-        updatedDateLable.text = "Updated: \(article.updatedDate)"
+        updatedDateLable.text = "Updated: " + (article.updatedDate ?? "")
         updatedDateLable.frame = CGRect(x: 5, y: publishedDateLable.frame.maxY+10, width: view.frame.width, height: 30)
         
         //
         // sectionLable
         //
-        sectionLable.text = "Section: \(article.section)"
+        sectionLable.text = "Section: " + (article.section ?? "")
         sectionLable.frame = CGRect(x: 5, y: updatedDateLable.frame.maxY+10, width: view.frame.width, height: 30)
         
         //
