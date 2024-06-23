@@ -104,6 +104,9 @@ class MoreInfoViewController: UIViewController {
             previewImage: previewImage,
             coreImage: coreImage
         ) {
+            
+            HapticsManager.shared.vibrate(for: .success)
+            
             let alert = UIAlertController(
                 title: "Information",
                 message: "The article was successfuly saved.",
@@ -115,6 +118,9 @@ class MoreInfoViewController: UIViewController {
             
             present(alert, animated: true, completion: nil)
         } else {
+            
+            HapticsManager.shared.vibrate(for: .error)
+            
             let alert = UIAlertController(
                 title: "Error",
                 message: "Something went wrong. You may have already saved this article.",

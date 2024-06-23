@@ -76,8 +76,6 @@ class MoreInfoFromCoreDataViewController: UIViewController {
         
         configure()
         
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.down"), style: .done, target: self, action: nil)
-        
         view.addSubview(image)
         view.addSubview(sourceTitle)
         view.addSubview(publishedDateLable)
@@ -122,7 +120,6 @@ class MoreInfoFromCoreDataViewController: UIViewController {
         //  published label
         //
         publishedDateLable.text = "Publised: " + (article.publishedDate ?? "")
-//        "Publised: \()"
         publishedDateLable.frame = CGRect(x: 5, y: sourceTitle.frame.maxY+10, width: view.frame.width, height: 30)
         
         //
