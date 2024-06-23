@@ -88,6 +88,11 @@ class MoreInfoViewController: UIViewController {
     }
     
     @objc func saveData() {
+        
+        let previewImage = article.media.first?.metaData[0].url ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqrEjjUHn9M9TT65gTVLXc_rN6ry5TraQf4w&s"
+        
+        let coreImage = article.media.first?.metaData[2].url ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqrEjjUHn9M9TT65gTVLXc_rN6ry5TraQf4w&s"
+        
         if DataCoreManager.shared.createArticleDataCore(
             Int64(article.id),
             title: article.title,
@@ -96,8 +101,8 @@ class MoreInfoViewController: UIViewController {
             source: article.source,
             updated: article.updated,
             publishedDate: article.publishedDate,
-            previewImage: article.media[0].metaData[0].url,
-            coreImage: article.media[0].metaData[2].url
+            previewImage: previewImage,
+            coreImage: coreImage
         ) {
             let alert = UIAlertController(
                 title: "Information",

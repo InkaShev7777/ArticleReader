@@ -47,7 +47,6 @@ public final class DataCoreManager: NSObject {
             articleCoreData.source = source
             articleCoreData.updatedDate = updated
             
-            
             guard let urlFromString = URL(string: previewImage) else {
                 return false
             }
